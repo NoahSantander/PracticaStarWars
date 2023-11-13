@@ -1,20 +1,28 @@
 import Habitante.*
+import SableDeLuz.*
+import Suceso.*
 
 
 describe "Tests de Star Wars"{
 
-var anakin // maestro del lado de la luz con sableDeLuz  de potencia 250
-var abandono // suceso con carga emocional negativa 	
-var arrepentimiento // suceso con gran carga emocional positiva 	
+const sableDeAnakin = new SableDeLuz(energia = 25)
+const anakin = new Maestro(cantidadMidiclorianos = 1000000, preparado = true, 
+	sableDeLuz = sableDeAnakin, ladoEnLaFuerza = new Jedi(yearsJuntoALaLuz = 5, nivelPazInterior = 10000))
+
+const darthVader = new Maestro(cantidadMidiclorianos = 1000000, preparado = true, 
+	sableDeLuz = sableDeAnakin, ladoEnLaFuerza = new Sith (yearsSiendoSith = 10, nivelOdio = 10000))
+// maestro del lado de la luz con sableDeLuz  de potencia 250
+const abandono = new Suceso(cargaEmocional = -10000000) // suceso con carga emocional negativa 	
+const arrepentimiento = new Suceso(cargaEmocional = 10000000) // suceso con gran carga emocional positiva 	
 
 test "testAnakinPasaAlLadoOscuro" {
 	anakin.vivirSuceso(abandono)
-	assert.equals("Lado Oscuro", anakin) //arreglar y completar
+	assert.equals("Oscuro", anakin.ladoEnLaFuerza().lado()) //arreglar y completar
 }
-
+	
 test "testVaderPasaAlLadoLuminoso" {
-	var darthVader // = ?
-	assert.equals("Lado Luminoso", darthVader) //arreglar y completar
+	darthVader.vivirSuceso(arrepentimiento)
+	assert.equals("Luminoso", darthVader.ladoEnLaFuerza().lado()) //arreglar y completar
 }
 
 }
