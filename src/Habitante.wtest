@@ -1,0 +1,20 @@
+import Habitante.*
+
+
+describe "Tests de Star Wars"{
+
+var anakin // maestro del lado de la luz con sableDeLuz  de potencia 250
+var abandono // suceso con carga emocional negativa 	
+var arrepentimiento // suceso con gran carga emocional positiva 	
+
+test "testAnakinPasaAlLadoOscuro" {
+	anakin.vivirSuceso(abandono)
+	assert.equals("Lado Oscuro", anakin) //arreglar y completar
+}
+
+test "testVaderPasaAlLadoLuminoso" {
+	var darthVader // = ?
+	assert.equals("Lado Luminoso", darthVader) //arreglar y completar
+}
+
+}
